@@ -2,9 +2,15 @@
 import { v4 } from "uuid";
 import "./styles.css";
 
+  interface Car { 
+    brand: string; 
+    price: number; 
+    isDiesel: boolean 
+  }
+
 export default function Homework_06() {
-  interface car { brand: string; price: number; isDiesel: boolean }
-  const cars: car[] = [
+
+  const cars: Car[] = [
     { brand: "BMW", price: 20000, isDiesel: true },
     { brand: "Mercedes", price: 22000, isDiesel: false },
     { brand: "Porshe", price: 50000, isDiesel: true },
@@ -12,7 +18,7 @@ export default function Homework_06() {
     { brand: "Audi", price: 50000, isDiesel: true },
   ];
 
-  const menuCars = cars.map((value) => {
+  const menuCars = cars.map((value: Car) => {
 
     return (
 
