@@ -4,7 +4,7 @@ import Button from "components/Button/Button";
 
 import "components/Feedback/styles.css";
 
-function Feedback({ like, dislike, onLike, onDislike}: FeedbackProps) {
+function Feedback({ like, dislike, onLike, onDislike, resetResults}: FeedbackProps) {
   
 
   return (
@@ -19,7 +19,7 @@ function Feedback({ like, dislike, onLike, onDislike}: FeedbackProps) {
           <p className="count">{dislike}</p>
         </div>
       </div>
-      {/* <Button name="Reset Results" onClick={resetResults} /> */}
+      <Button name="Reset Results" onClick={resetResults} />
     </div>
   );
 }
