@@ -8,3 +8,6 @@ export const Container = styled.div`
   align-items: center;
   padding: 40px;
 `;
+export const BtnContainer = styled.div`
+width: 300px;
+`;

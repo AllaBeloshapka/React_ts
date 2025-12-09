@@ -1,7 +1,7 @@
 import { InputComponent, InputLabel, InputWrapper } from "./styles";
 import { type InputProps } from "./type";
 
-function Input({ id, name, type, placeholder, label, disabled, error }: InputProps) {
+function Input({ id, name, type, placeholder, label, value, onChange}: InputProps) {
   return (
     <InputWrapper>
       <InputLabel htmlFor={id}>
@@ -12,8 +12,8 @@ function Input({ id, name, type, placeholder, label, disabled, error }: InputPro
         name={name}
         type={type}
         placeholder={placeholder}
-        disabled={disabled}
-        error={error}
+        value={value}
+        onChange={onChange}
       />
     </InputWrapper>
   );
