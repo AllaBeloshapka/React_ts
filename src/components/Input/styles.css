@@ -1,12 +1,9 @@
 .input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+
 }
 
 .input-label {
-  font-size: 16px;
-  color: hsl(0, 0%, 44%);
+
 }
 
 .input-component {
@@ -18,7 +15,6 @@
   outline: none;
 }
 
-.input-component::placeholder {
-  color: #6f6f6f;
-  font-size: 16px;
+.input-component: {
+
 }

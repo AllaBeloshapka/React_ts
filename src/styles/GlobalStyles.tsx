@@ -1,3 +1,6 @@
+import {Global, css} from "@emotion/react";
+
+const globalAppStyles = css`
 * {
   box-sizing: border-box;
 }
@@ -22,3 +25,8 @@ li {
   flex-direction: column;
   min-height: 100%;
 }
+`;
+
+export default function GlobalStyles() {
+    return <Global styles={globalAppStyles}/>
+};

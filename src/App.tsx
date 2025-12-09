@@ -5,7 +5,9 @@
 
 // Homeworks
 // import Homework_06 from "./homeworks/Homework_06";
-import Homework_07 from "homeworks/hw_07/Homework_07";
+// import Homework_07 from "homeworks/hw_07/Homework_07";
+import Homework_08 from "homeworks/hw_08/Homework_08";
+import GlobalStyles from "styles/GlobalStyles";
 
 
 function App() {
@@ -14,8 +16,13 @@ function App() {
   {/* <Lesson_06 /> */}
   {/* <Lesson_07/> */}
 
+  <GlobalStyles />
+
   {/* <Homework_06/> */}
-  <Homework_07/>
+  {/* <Homework_07/> */}
+  {/* <Homework_07/> */}
+  <Homework_08/>
+
   </>
   )
 }
