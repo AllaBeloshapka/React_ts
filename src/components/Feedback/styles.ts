@@ -1,4 +1,13 @@
-.feedback-wrapper {
+import styled from "@emotion/styled";
+
+export const ButtonWithcountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+`;
+
+export const FeedbackWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,34 +20,16 @@
   padding: 30px;
   background-color: rgb(26, 35, 53);
   color: white;
-}
+`;
 
-.feedback-control {
+export const FeedbackControl = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
   width: 100%;
-}
+`;
 
-.buttonwithcount-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-}
-
-.count {
+export const Count = styled.p`
   font-size: 40px;
   color: white;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-}
-
-.image-control {
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-}
+`;
