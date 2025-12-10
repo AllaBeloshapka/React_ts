@@ -1,13 +1,40 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
+export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  justify-content: center;
   align-items: center;
-  padding: 40px;
+  justify-content: center;
+  flex: 1;
+  padding: 100px;
+  gap: 30px;
 `;
-export const BtnContainer = styled.div`
-width: 300px;
+
+export const Paragraph = styled.p`
+  color: blue;
 `;
+
+export const FormElementContainer = styled.div`
+  width: 300px;
+`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

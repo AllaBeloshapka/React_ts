@@ -1,13 +1,24 @@
-import { InputComponent, InputLabel, InputWrapper } from "./styles";
+import { InputWrapper, InputLabel, InputComponent, ErrorText } from "./styles";
+
 import { type InputProps } from "./type";
 
-function Input({ id, name, type, placeholder, label, value, onChange}: InputProps) {
+function Input({
+  id,
+  name,
+  type = "text",
+  placeholder,
+  label,
+  disabled = false,
+  error = undefined,
+  value,
+  onChange,
+}: InputProps) {
   return (
     <InputWrapper>
-      <InputLabel htmlFor={id}>
-        {label}
-      </InputLabel>
+      <InputLabel htmlFor={id}>{label}</InputLabel>
       <InputComponent
+        disabled={disabled}
+        $error={error}
         id={id}
         name={name}
         type={type}
@@ -15,8 +26,10 @@ function Input({ id, name, type, placeholder, label, value, onChange}: InputProp
         value={value}
         onChange={onChange}
       />
+      {!!error && <ErrorText>{error}</ErrorText>}
     </InputWrapper>
   );
 }
 
 export default Input;
+

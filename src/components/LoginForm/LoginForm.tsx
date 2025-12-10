@@ -53,11 +53,7 @@ function LoginForm() {
           onChange={onChangePassword}
         />
       </InputsContainer>
-      {/* <input
-        value={firstName}
-        onChange={onChange}
-        placeholder="Enter your name"
-      /> */}
+
       <Button name="Login" type="submit" />
     </LoginFormContainer>
   );

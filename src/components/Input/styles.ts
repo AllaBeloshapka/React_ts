@@ -1,10 +1,29 @@
 import styled from "@emotion/styled";
 
+interface InputComponentProps {
+  $error?: string | undefined;
+}
+
+const generateInputBorder = (
+  error: string | undefined,
+  disabled: boolean | undefined
+) => {
+  if (disabled) {
+    return "#acacacff";
+  } else {
+    if (!!error) {
+      return "#ff6868ff";
+    } else {
+      return "#3f3f3f";
+    }
+  }
+};
+
 export const InputWrapper = styled.div`
-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
 `;
 
 export const InputLabel = styled.label`
@@ -12,16 +31,24 @@ export const InputLabel = styled.label`
   color: hsl(0, 0%, 44%);
 `;
 
-export const InputComponent = styled.input`
+export const InputComponent = styled.input<InputComponentProps>`
   width: 100%;
   height: 50px;
-  border: 1px solid #3f3f3f;
+  border: 1px solid
+    ${({ disabled, $error }) => generateInputBorder($error, disabled)};
   border-radius: 4px;
   padding: 12px;
   outline: none;
 
-  :placeholder {
+  &::placeholder {
     color: #6f6f6f;
     font-size: 16px;
-  };
+  }
 `;
+
+export const ErrorText = styled.div`
+  height: 18px;
+  font-size: 16px;
+  color: #ff6868ff;
+`;
+
