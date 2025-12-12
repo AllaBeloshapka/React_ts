@@ -24,6 +24,9 @@ li {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #486551;
 }
 `;
 
