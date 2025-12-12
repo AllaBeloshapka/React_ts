@@ -1,9 +1,12 @@
+
 import { TASK_FORM_VALUES } from "./types";
 import { type FormEvent, type ChangeEvent, useState } from "react";
 import Button from "components/Button/Button";
 import "./styles";
 import Input from "components/Input/Input";
 import { Form, NameBox, Notes, TaskContainer } from "./styles";
+import { v4 } from "uuid";
+
 
 function Homework_09() {
   //Шаг 1: Создаем стейты для контроля HTML элеметов Input
@@ -17,6 +20,7 @@ function Homework_09() {
 
   //Шаг 5: создаём массив для хранения задач
   const [tasks, setTasks] = useState<string[]>([]);
+
 
   //Шаг 3: Создаем функцию addTask для переноса введённого текста в блок Notes по событию onSubmit формы
   const addTask = (event: FormEvent<HTMLFormElement>) => {
@@ -39,7 +43,7 @@ function Homework_09() {
 
       <Notes>
         {tasks.map((task: string, index: number) => (
-          <div key={index}>{task}</div>
+          <div key={v4()}>{task}</div>
         ))}
       </Notes>
 
