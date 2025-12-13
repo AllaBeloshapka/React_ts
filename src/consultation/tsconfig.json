@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "jsx": "react",
       "module": "node16",        // Используйте ESNext или ESModule для поддержки ES-модулей
       "moduleResolution": "node16", // Укажите разрешение модулей
       "esModuleInterop": true,    // Включите совместимость ES и CommonJS
