@@ -17,9 +17,10 @@ export const Card = styled.div`
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
 `;
 
-export const ButtonControl = styled.button`
+export const ButtonControl = styled.div`
   width: 350px;
   background-color: #486551;
   color: #ffffff;
