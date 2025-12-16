@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "components/Button/Button";
 import { ButtonControl, Card, WrapperForTheForm } from "./styles";
+import axios from "axios";
 
 function Homework_10() {
   // Переменная data хранит текущее значение поля ввода
@@ -61,7 +62,7 @@ function Homework_10() {
   return (
     <WrapperForTheForm>
       
-      <Card>{ data}</Card>
+      <Card>{ error ? error : data}</Card>
 
       <ButtonControl>
         <Button name="Request" type="button" onClick={onClick} />
