@@ -7,25 +7,14 @@ function Homework_10() {
   // Используется для полуения данных с сервера
   const [data, setData] = useState<string | undefined>("");
 
-  // Переменная joke хранит текст шуток, полученный с сервера
-  // Тип string | undefined — потому что данные появляются не сразу
-  const [joke, setJoke] = useState<string | undefined>(undefined);
-
   // Переменная error хранит сообщение об ошибке, если запрос завершился неудачно
   const [error, setError] = useState<string | undefined>(undefined);
 
   // URL API, откуда мы будем получать случайную шутку
   const JOKE_URL = "https://official-joke-api.appspot.com/random_joke";
 
-  // Обработчик события клика по кнопке
-  // Срабатывает каждый раз, когда пользователь кликает на кнопку
-  const onClick = () => {
-    // Отправляем GET-запрос на сервер
-    getJoke();
-  };
-
   // Асинхронная функция для получения данных с сервера
-  const getJoke = async () => {
+  const getJoke = async (JOKE_URL: string) => {
     try {
       // Перед выполнением запроса очищаем предыдущие данные и ошибки
       setData(undefined);
@@ -36,12 +25,21 @@ function Homework_10() {
 
       // Из полученного ответа забираем нужное поле setup и punchline
       const json = await response.json();
+
       setData(json.setup + " " + json.punchline);
+
     } catch (error: any) {
       // Если во время запроса произошла ошибка,
       // мы перехватываем её здесь
-      setError(error.message);
+      setError(error.message + "Some Network Error");
     }
+  };
+
+  // Обработчик события клика по кнопке
+  // Срабатывает каждый раз, когда пользователь кликает на кнопку
+  const onClick = () => {
+    // Отправляем GET-запрос на сервер
+    getJoke(JOKE_URL);
   };
 
   // Выполняем запрос при загрузке компонента
@@ -49,31 +47,21 @@ function Homework_10() {
     // Проверка в консоле F12
     console.log("MOUNTING!!!");
     // Отправляем GET-запрос на сервер
-    getJoke();
+    getJoke(JOKE_URL);
   }, []);
 
-  // Выполняем запрос при изменении data
-  useEffect(() => {
-    //Проверяем что data не пустая
-    if (!!data){
-    // Проверка в консоле F12
-    console.log("UPDATING!!!");
-    // При изменении data отправляем GET-запрос на сервер
-    getJoke();
-    }
-  }, [data]);
-
   // Выполняем очистку при размонтировании компонента
-useEffect(() => {
-  return () => {
-    // Этот код выполнится при размонтировании компонента
-console.log("UNMOUNTING!!!");
-  };
-}, []);
+  useEffect(() => {
+    return () => {
+      // Этот код выполнится при размонтировании компонента
+      console.log("UNMOUNTING!!!");
+    };
+  }, []);
 
   return (
     <WrapperForTheForm>
-      <Card></Card>
+      
+      <Card>{ data}</Card>
 
       <ButtonControl>
         <Button name="Request" type="button" onClick={onClick} />
