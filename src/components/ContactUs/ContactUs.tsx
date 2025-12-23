@@ -41,7 +41,7 @@ function ContactUs() {
     // и очищает форму после отправки.
     onSubmit: (values, helpers) => {
       console.log("Содержание формы:", values, helpers);
-    // Очистка формы после отправки
+    // Очистка формы после отправки.
       helpers.resetForm();
     },
   });
