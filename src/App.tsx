@@ -7,6 +7,11 @@
 import Homework_10 from "homeworks/hw_10/Homework_10";
 
 // import Playground from "./consultation/consultation_1_use/Playground";
+import Homework_12 from "homeworks/hw_12/Homework_12";
+
+// import Playground from "./consultation/consultation_1_use/Playground";
+
+// import TodoForm from "./consultation/Laboratory_work/TodoForm";
 
 import GlobalStyles from "styles/GlobalStyles";
 
@@ -35,6 +40,11 @@ function App() {
   <Homework_10/>
 
   {/* <Playground /> */}
+  <Homework_12 />
+
+  {/* <Playground /> */}
+  {/* <h1>ToDo List</h1> */}
+  {/* <TodoForm /> */}
 
   </>
   )

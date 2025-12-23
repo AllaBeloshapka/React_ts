@@ -26,7 +26,7 @@ li {
   min-height: 100%;
   justify-content: center;
   align-items: center;
-  background-color: #486551;
+  background-color: #f9fec1;
 }
 `;
 

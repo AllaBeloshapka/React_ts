@@ -24,3 +24,4 @@ export const InputsContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
+
