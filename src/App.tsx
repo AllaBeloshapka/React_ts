@@ -4,8 +4,12 @@
 // import Homework_09 from "homeworks/hw_09/Homework_09";
 // import Lesson_08 from "lessons/Lesson_08/Lesson_08";
 // import Lesson_09 from "lessons/Lesson_09/Lesson_09";
+import Homework_12 from "homeworks/hw_12/Homework_12";
 
-import Playground from "./consultation/consultation_1_use/Playground";
+// import Playground from "./consultation/consultation_1_use/Playground";
+
+// import TodoForm from "./consultation/Laboratory_work/TodoForm";
+
 import GlobalStyles from "styles/GlobalStyles";
 
 // Homeworks
@@ -30,8 +34,11 @@ function App() {
   {/* <Homework_07/> */}
   {/* <Homework_08/> */}
   {/* <Homework_09/> */}
+  <Homework_12 />
 
-  <Playground />
+  {/* <Playground /> */}
+  {/* <h1>ToDo List</h1> */}
+  {/* <TodoForm /> */}
 
   </>
   )
