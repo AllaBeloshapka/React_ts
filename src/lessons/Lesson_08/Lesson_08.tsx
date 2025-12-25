@@ -8,16 +8,16 @@ function Lesson_08() {
       <Paragraph>Lesson_08</Paragraph>
 
       <ButtonControl>
-        <Button name="Go back" />
+        <Button name="Go back" type={undefined} />
       </ButtonControl>
 
       <ButtonControl>
         {/* <Button isRed={true} name="Delete" /> */}
-        <Button isRed name="Delete" />
+        <Button isRed name="Delete" type={undefined} />
       </ButtonControl>
 
            <ButtonControl>
-        <Button isDisabled name="Go back" />
+        <Button isDisabled name="Go back" type={undefined} />
       </ButtonControl>
     </PageWrapper>
   );

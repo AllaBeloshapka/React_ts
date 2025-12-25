@@ -8,11 +8,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import Homework_09 from "homeworks/hw_09/Homework_09";
 // import Lesson_08 from "lessons/Lesson_08/Lesson_08";
 // import Lesson_09 from "lessons/Lesson_09/Lesson_09";
-// import Homework_12 from "homeworks/hw_12/Homework_12";
-import Home from "pages/EmployeeApp/Home/Home";
-import LogIn from "pages/EmployeeApp/LogIn/LogIn";
-import About from "pages/EmployeeApp/About/About";
-import ContactUs from "pages/EmployeeApp/ContactUs/ContactUs";
+import Homework_10 from "homeworks/hw_10/Homework_10";
+
+// import Playground from "./consultation/consultation_1_use/Playground";
+import Homework_12 from "homeworks/hw_12/Homework_12";
 
 // import Playground from "./consultation/consultation_1_use/Playground";
 
@@ -43,7 +42,10 @@ function App() {
   {/* <Homework_07/> */}
   {/* <Homework_08/> */}
   {/* <Homework_09/> */}
-  {/* <Homework_12 /> */}
+  <Homework_10/>
+
+  {/* <Playground /> */}
+  <Homework_12 />
 
   {/* <Playground /> */}
   {/* <h1>ToDo List</h1> */}
