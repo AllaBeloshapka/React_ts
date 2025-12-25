@@ -4,7 +4,7 @@ import {} from "./styles";
 
 function Homework_12() {
   return (
-    <ContactUs />
+    <ContactUs   />
   )
 }
 

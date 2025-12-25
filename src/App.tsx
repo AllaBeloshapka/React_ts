@@ -1,3 +1,7 @@
+
+
+import Layout from "components/Layout/Layout";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Lessons
 // import Lesson_06 from "./lessons/Lesson_06/Lesson_06";
 // import Lesson_07 from "lessons/Lesson_07/Lesson_07";
@@ -24,11 +28,12 @@ import GlobalStyles from "styles/GlobalStyles";
 
 function App() {
   return (
-  <>
+  <BrowserRouter>
   {/* <Lesson_06 /> */}
   {/* <Lesson_07/> */}
   {/* <Lesson_08/> */}
   {/* <Lesson_09/> */}
+  
 
   <GlobalStyles />
 
@@ -46,7 +51,19 @@ function App() {
   {/* <h1>ToDo List</h1> */}
   {/* <TodoForm /> */}
 
-  </>
+  <Layout>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contactUs" element={<ContactUs />} />
+      <Route path="*" element={<div>Page Not Found</div>} />
+    </Routes>
+  </Layout>
+
+  </BrowserRouter>
+
+  
   )
 }
 export default App;

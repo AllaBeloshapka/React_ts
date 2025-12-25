@@ -1,6 +1,6 @@
-import { useFormik } from "formik";
+import { useFormik } from "formik";    // Хук для управления с формами в React
 
-import * as Yup from "yup";
+import * as Yup from "yup";    // Библиотека для валидации данных
 
 import { Title, ContactUsFormContainer, InputContainer } from "./styles";
 
@@ -28,7 +28,10 @@ const validationSchema = Yup.object().shape({
 });
 
 function ContactUs() {
+  // useFormik возвращает объект с нужными свойствами и методами для работы с формой.
   const formik = useFormik({
+    //Значение по умолчанию для полей формы.
+    //initialValues - ключ. 
     initialValues: {
       [CONTACT_US_FORM_VALUES.FULL_NAME]: "",
       [CONTACT_US_FORM_VALUES.PHONE]: "",
@@ -39,13 +42,15 @@ function ContactUs() {
     validateOnChange: false, 
     // Когда форма успешно отправлена, получаем данные формы, может с ними что-то сделать
     // и очищает форму после отправки.
+    // onSubmit - ключ
     onSubmit: (values, helpers) => {
       console.log("Содержание формы:", values, helpers);
-    // Очистка формы после отправки
+    // Очистка формы после отправки.
       helpers.resetForm();
     },
   });
   return (
+    // handleSubmit запускает onSubmit из объекта formik при отправке формы
     <ContactUsFormContainer onSubmit={formik.handleSubmit}>
       <Title>Contact Us</Title>
       <InputContainer>
