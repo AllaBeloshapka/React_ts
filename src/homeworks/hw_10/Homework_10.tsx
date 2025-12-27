@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "components/Button/Button";
 import { ButtonControl, Card, WrapperForTheForm } from "./styles";
-import axios from "axios";
+// import axios from "axios";
 
 function Homework_10() {
   // Переменная data хранит текущее значение поля ввода
