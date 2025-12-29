@@ -17,7 +17,11 @@ import ContactUs from "components/ContactUs/ContactUs";
 import About from "pages/EmployeeApp/About/About";
 import LogIn from "pages/EmployeeApp/LogIn/LogIn";
 import Home from "pages/EmployeeApp/Home/Home";
+import Clients from "pages/EmployeeApp/Clients/Clients";
 
+import Facebook from "pages/pages-link/Facebook/Facebook";
+import Instagram from "pages/pages-link/Instagram/Instagram";
+import Linkedin from "pages/pages-link/Linkedin/Linkedin";
 // Homeworks
 // import Homework_06 from "./homeworks/Homework_06";
 // import Homework_07 from "homeworks/hw_07/Homework_07";
@@ -55,7 +59,13 @@ function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/clients" element={<Clients />} />
+
           <Route path="*" element={<div>Page Not Found</div>} />
+
+          <Route path="/clients/facebook" element={<Facebook />} />
+          <Route path="/clients/linkedin" element={<Linkedin />} />
+          <Route path="/clients/instagram" element={<Instagram />} />
         </Routes>
       </Layout>
     </BrowserRouter>

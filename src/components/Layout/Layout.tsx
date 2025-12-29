@@ -50,6 +50,10 @@ function Layout({ children }: LayoutProps) {
           <HeaderLink
             style={getActiveStyles}
             to="/login">Login</HeaderLink>
+            
+          <HeaderLink
+            style={getActiveStyles}
+            to="/clients">Clients</HeaderLink>
 
         </NavigationContainer>
       </Header>
@@ -66,6 +70,7 @@ function Layout({ children }: LayoutProps) {
           <FooterLink to="/contactUs">Contact Us</FooterLink>
           <FooterLink to="/about">About</FooterLink>
           <FooterLink to="/login">Login</FooterLink>
+          <FooterLink to="/clients">Clients</FooterLink>
         </FooterNavigation>
       </Footer>
     </LayoutWrapper>
