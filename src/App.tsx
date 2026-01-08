@@ -17,6 +17,7 @@ import ContactUs from "components/ContactUs/ContactUs";
 import About from "pages/EmployeeApp/About/About";
 import LogIn from "pages/EmployeeApp/LogIn/LogIn";
 import Home from "pages/EmployeeApp/Home/Home";
+import Homework_14 from "homeworks/hw_14/Homework_14";
 
 // Homeworks
 // import Homework_06 from "./homeworks/Homework_06";
@@ -44,12 +45,11 @@ function App() {
 
       {/* <Playground /> */}
       {/* <Homework_12 /> */}
+      <Homework_14 />
 
-      {/* <Playground /> */}
-      {/* <h1>ToDo List</h1> */}
       {/* <TodoForm /> */}
 
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
@@ -57,7 +57,7 @@ function App() {
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
-      </Layout>
+      </Layout> */}
     </BrowserRouter>
   );
 }

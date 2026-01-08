@@ -1,0 +1,12 @@
+import styled from "@emotion/styled";
+
+export const ContentWrapper = styled.div`
+width: 400px;
+height: auto;
+margin: 20px auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+`
+// overflow-wrap:anywhere; перенос текста
