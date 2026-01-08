@@ -1,5 +1,9 @@
-import Layout from "components/Layout/Layout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import Layout from "components/Layout/Layout";
+import Layout from "./pages/Project_15/Layout";
+import Create_Employee from "pages/Project_15/Create_Employee/Create_Employee";
+import Employees from "pages/Project_15/Employees/Employees";
+
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 // Lessons
 // import Lesson_06 from "./lessons/Lesson_06/Lesson_06";
 // import Lesson_07 from "lessons/Lesson_07/Lesson_07";
@@ -13,10 +17,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import GlobalStyles from "styles/GlobalStyles";
 
-import ContactUs from "components/ContactUs/ContactUs";
-import About from "pages/EmployeeApp/About/About";
-import LogIn from "pages/EmployeeApp/LogIn/LogIn";
-import Home from "pages/EmployeeApp/Home/Home";
+// import ContactUs from "components/ContactUs/ContactUs";
+// import About from "pages/EmployeeApp/About/About";
+// import LogIn from "pages/EmployeeApp/LogIn/LogIn";
+// import Home from "pages/EmployeeApp/Home/Home";
 
 // Homeworks
 // import Homework_06 from "./homeworks/Homework_06";
@@ -49,13 +53,22 @@ function App() {
       {/* <h1>ToDo List</h1> */}
       {/* <TodoForm /> */}
 
-      <Layout>
+      {/* <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="*" element={<div>Page Not Found</div>} />
+        </Routes>
+      </Layout> */}
+   
+      <Layout>
+        <Routes>
+<Route path="/create" element={<Create_Employee />} />
+        <Route path="/employees" element={<Employees />} />
+        <Route path="*" element={<Navigate to="/create" />} />
+          
         </Routes>
       </Layout>
     </BrowserRouter>
