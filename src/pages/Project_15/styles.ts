@@ -1,85 +1,59 @@
 import styled from "@emotion/styled";
-import { NavLink , type NavLinkRenderProps, Link} from "react-router-dom";
+import { NavLink, type NavLinkRenderProps } from "react-router-dom";
 
-export const LayoutWrapper = styled.div`
+export const AppLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
 `;
 
-export const Header = styled.header`
+export const AppHeader = styled.header`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 100px;
+  height: 120px;
   border-bottom: 1px solid black;
-  background-color: rgba(0, 10, 66, 0.9);
-  padding: 20px 40px;
-  color: white;
+  background-color: white;
+  padding: 10px 50px;
 `;
 
-export const Logo = styled.div`
+export const HeaderLogoWrapper = styled.div`
+  width: 120px;
   height: 100%;
-  width: 80px;
-  cursor: pointer;
 `;
 
-export const LogoImg = styled.img`
+export const HeaderLogoImage = styled.img`
   width: 100%;
   height: 100%;
 `;
 
-export const NavigationContainer = styled.nav`
+export const HeaderNavigation = styled.nav`
+  height: 100%;
   display: flex;
   gap: 30px;
-  height: 100%;
   align-items: center;
 `;
 
-export const HeaderLink = styled(NavLink)`
-  color: white;
-  font-size: 20px;
-  font-weight: normal;
-  text-decoration: none;
+export const resolveActiveNavLinkStyles = (
+  { isActive }: NavLinkRenderProps
+) => ({
+  fontWeight: isActive ? "bold" : "normal",
+  textDecoration: isActive ? "underline" : "none",
+});
+
+export const HeaderNavLink = styled(NavLink)`
+  font-size: 28px;
+  color: black;
 `;
 
-export const Main = styled.main`
+export const AppMain = styled.main`
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
-  padding: 40px;
+  background-color: #182434ff;
 `;
 
-export const Footer = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 150px;
-  border-top: 1px solid black;
-  background-color: rgba(0, 10, 66, 0.9);
-  padding: 20px 40px;
-  color: white;
-`;
 
-export const FooterLogo = styled.div`
-  height: 80px;
-  width: 80px;
-  cursor: pointer;
-`;
 
-export const FooterNavigation = styled.nav`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`;
 
-export const FooterLink = styled(Link)`
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-`;
-
-export const getActiveStyles = ({ isActive }: NavLinkRenderProps) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })

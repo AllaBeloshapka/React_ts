@@ -1,51 +1,51 @@
 import { useNavigate } from "react-router-dom";
 
 import {
-  LayoutWrapper,
-  Header,
-  Main,
-  Logo,
-  LogoImg,
-  HeaderLink,
-  NavigationContainer,
-  getActiveStyles,
+  AppLayout,
+  AppHeader,
+  AppMain,
+  HeaderLogoWrapper,
+  HeaderLogoImage,
+  HeaderNavLink,
+  HeaderNavigation,
+  resolveActiveNavLinkStyles,
 } from "./styles";
+
 import { type LayoutProps } from "./types";
 import { ROUTES } from "./routes";
 
-
 function Layout({ children }: LayoutProps) {
-  const navigate = useNavigate();
 
-  const onCreateEmployees = () => {
-   
-  };
 
   return (
-    <LayoutWrapper>
-      <Header>
-        <Logo >
-          <LogoImg
+    <AppLayout>
+      <AppHeader>
+        <HeaderLogoWrapper>
+          <HeaderLogoImage
             src="https://www.designmantic.com/logo-images/6963.png?company=Company%20Name&keyword=employees&slogan=&verify=1"
             alt="App Logo"
           />
-        </Logo>
-        <NavigationContainer>
-          <HeaderLink
-            style={getActiveStyles}
-            to={ROUTES.CREATE_EMPLOYEES}>
+        </HeaderLogoWrapper>
+
+        <HeaderNavigation>
+          <HeaderNavLink
+            to={ROUTES.CREATE_EMPLOYEES}
+            style={resolveActiveNavLinkStyles}
+          >
             Create Employees
-          </HeaderLink>
+          </HeaderNavLink>
 
-          <HeaderLink
-          style={getActiveStyles}
-            to={ROUTES.EMPLOYEES}>Employees</HeaderLink>       
+          <HeaderNavLink
+            to={ROUTES.EMPLOYEES}
+            style={resolveActiveNavLinkStyles}
+          >
+            Employees
+          </HeaderNavLink>
+        </HeaderNavigation>
+      </AppHeader>
 
-        </NavigationContainer>
-      </Header>
-      <Main>{children}</Main>
-
-    </LayoutWrapper>
+      <AppMain>{children}</AppMain>
+    </AppLayout>
   );
 }
 
