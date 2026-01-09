@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 import { NavLink, type NavLinkRenderProps } from "react-router-dom";
 
-export const AppLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-`;
+// export const AppLayout = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+// `;
 
 export const AppHeader = styled.header`
   display: flex;

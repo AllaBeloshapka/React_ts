@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+
+
+import { createContext, type ChangeEvent, useState } from "react";
 
 import {
-  AppLayout,
   AppHeader,
   AppMain,
   HeaderLogoWrapper,
@@ -14,11 +15,27 @@ import {
 import { type LayoutProps } from "./types";
 import { ROUTES } from "./routes";
 
-function Layout({ children }: LayoutProps) {
+//Создаем контекст для передачи данных между компонентами
+export const AppLayoutContext = createContext<string | undefined>(undefined);
 
+function Layout({ children }: LayoutProps) {
+  //Состояния для хранения значений текста
+const [textValue, setTextValue] = useState<string>("");
+//Состояния для хранения окончательного текста и передачи его в контекст
+  const [text, setText] = useState<string>("");
+
+  //Обработчик изменения текста в текстовом поле
+  const onChangeText = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setTextValue(event.target.value);
+  };
+//Функция для обновления контекста с текущим значением текста
+  const userData = () => {
+    setText(textValue);
+  };
 
   return (
-    <AppLayout>
+    //Оборачиваем компоненты в провайдер контекста и передаем значение текста
+    <AppLayoutContext.Provider value={text}>
       <AppHeader>
         <HeaderLogoWrapper>
           <HeaderLogoImage
@@ -38,14 +55,14 @@ function Layout({ children }: LayoutProps) {
           <HeaderNavLink
             to={ROUTES.EMPLOYEES}
             style={resolveActiveNavLinkStyles}
-          >
+>
             Employees
           </HeaderNavLink>
         </HeaderNavigation>
       </AppHeader>
 
       <AppMain>{children}</AppMain>
-    </AppLayout>
+    </AppLayoutContext.Provider>
   );
 }
 

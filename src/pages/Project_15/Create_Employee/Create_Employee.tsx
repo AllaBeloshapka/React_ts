@@ -1,10 +1,14 @@
-
+import { AppLayoutContext } from "../Layout";
+import { FormaWrapper } from "./styles";
+import { useContext } from "react";
 
 function Create_Employee() {
+  const text = useContext(AppLayoutContext);
+
   return (
-    <div>
+    <FormaWrapper>
       
-    </div>
+    </FormaWrapper>
   )
 }
 export default Create_Employee;
