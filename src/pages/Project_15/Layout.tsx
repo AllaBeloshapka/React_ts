@@ -1,5 +1,3 @@
-
-
 import { createContext, type ChangeEvent, useState } from "react";
 
 import {
@@ -15,27 +13,28 @@ import {
 import { type LayoutProps } from "./types";
 import { ROUTES } from "./routes";
 
-//Создаем контекст для передачи данных между компонентами
-export const AppLayoutContext = createContext<string | undefined>(undefined);
+//Типизация сотрудника
+export type Employee = {
+  name: string;
+  lastName: string;
+  age: string;
+  jobPosition: string;
+};
+
+type AppLayoutContextType = {
+  employee: Employee | null;
+  setEmployee: (employee: Employee) => void;
+};
+
+export const AppLayoutContext =
+  createContext<AppLayoutContextType | null>(null);
 
 function Layout({ children }: LayoutProps) {
-  //Состояния для хранения значений текста
-const [textValue, setTextValue] = useState<string>("");
-//Состояния для хранения окончательного текста и передачи его в контекст
-  const [text, setText] = useState<string>("");
-
-  //Обработчик изменения текста в текстовом поле
-  const onChangeText = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setTextValue(event.target.value);
-  };
-//Функция для обновления контекста с текущим значением текста
-  const userData = () => {
-    setText(textValue);
-  };
+  const [employee, setEmployee] = useState<Employee | null>(null);
 
   return (
     //Оборачиваем компоненты в провайдер контекста и передаем значение текста
-    <AppLayoutContext.Provider value={text}>
+    <AppLayoutContext.Provider value={{ employee, setEmployee }}>
       <AppHeader>
         <HeaderLogoWrapper>
           <HeaderLogoImage
@@ -55,7 +54,7 @@ const [textValue, setTextValue] = useState<string>("");
           <HeaderNavLink
             to={ROUTES.EMPLOYEES}
             style={resolveActiveNavLinkStyles}
->
+          >
             Employees
           </HeaderNavLink>
         </HeaderNavigation>

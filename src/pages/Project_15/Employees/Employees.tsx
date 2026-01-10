@@ -1,13 +1,29 @@
 import { useContext } from "react";
 import { AppLayoutContext } from "../Layout";
-import { DataTitle, DataWrapper } from "./styles";
+import { DataWrapper, Label, Value } from "./styles";
+import { PageWrapper } from "pages/EmployeeApp/LogIn/styles";
+import { DATA } from "../Create_Employee/types";
+
 
 function Employees() {
-  const text = useContext(AppLayoutContext);
+  const context = useContext(AppLayoutContext);
+  if (!context) {
+    return null;
+  }
+  const { employee } = context;
 
   return (
     <DataWrapper>
-      <DataTitle>{text}</DataTitle>   
+       < PageWrapper>
+        <Label>name</Label>
+        <Value>{employee?.name}</Value>
+        <Label>surname</Label>
+        <Value>{employee?.lastName}</Value>
+        <Label>age</Label>
+        <Value>{employee?.age}</Value>
+        <Label>position</Label>
+        <Value>{employee?.jobPosition}</Value>
+        </ PageWrapper>  
     </DataWrapper>
   )
 }
