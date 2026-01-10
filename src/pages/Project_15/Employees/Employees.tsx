@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppLayoutContext } from "../Layout";
 import { DataWrapper, Label, Value } from "./styles";
 import { PageWrapper } from "pages/EmployeeApp/LogIn/styles";
-import { DATA } from "../Create_Employee/types";
+
 
 
 function Employees() {
