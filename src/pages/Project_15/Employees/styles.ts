@@ -1,10 +1,5 @@
 import styled from "@emotion/styled";
 
-export const DataWrapper = styled.div`
-width: 590px;
-height: 470px;
-background: white;
-`;
 
 export const PageWrapper = styled.div`
 width: 590px;

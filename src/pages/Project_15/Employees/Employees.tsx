@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AppLayoutContext } from "../Layout";
-import { DataWrapper, Label, Value } from "./styles";
+import { Label, Value } from "./styles";
 import { PageWrapper } from "pages/EmployeeApp/LogIn/styles";
 
 
@@ -13,7 +13,7 @@ function Employees() {
   const { employee } = context;
 
   return (
-    <DataWrapper>
+  
        < PageWrapper>
         <Label>name</Label>
         <Value>{employee?.name}</Value>
@@ -24,7 +24,7 @@ function Employees() {
         <Label>position</Label>
         <Value>{employee?.jobPosition}</Value>
         </ PageWrapper>  
-    </DataWrapper>
+   
   )
 }
 export default Employees;
