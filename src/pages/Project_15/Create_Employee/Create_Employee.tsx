@@ -9,12 +9,17 @@ import { DATA } from "./types";
 
 // Ваплидация формы с помощью Yup
 const validationSchema = Yup.object().shape({
-  [DATA.NAME]: Yup.string().required("Name field is required"),
-  [DATA.LAST_NAME]: Yup.string().required("Last name field is required"),
-  [DATA.AGE]: Yup.number()
+  [DATA.NAME]: Yup.string().required("Name field is required")
+    .min(2, "Minimum 2 characters")
+    .max(50, "Maximum 50 characters"),
+  [DATA.LAST_NAME]: Yup.string().required("Last name field is required")
+    .max(15, "Maximum 15 characters"),
+  [DATA.AGE]: Yup.string()
     .required("Age field is required")
-    .positive("Age must be a positive number"),
-  [DATA.JOB_POSITION]: Yup.string().required("Job position field is required"),
+    .min(1, "Minimum 1 character")
+    .max(3, "Maximum 3 characters"),
+  [DATA.JOB_POSITION]: Yup.string().required("Job position field is required")
+   .max(30, "Maximum 30 characters"),
 });
 
 function Create_Employee() {
@@ -50,6 +55,8 @@ const { setEmployee } = context;
     age: values[DATA.AGE],
     jobPosition: values[DATA.JOB_POSITION],
   });
+   console.log("Employee created:");
+      console.log(values);
 // Сбрасываем форму после отправки
   helpers.resetForm();
 },
