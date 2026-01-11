@@ -9,15 +9,16 @@ border-radius: 4px;
 padding: 60px;
 display: flex;
 flex-direction: column;
-gap: 30px;
+gap: 20px;
 border: 1px solid #000000;
 `;
 export const Label = styled.p`
 font-size: 14px;
 color: #8F8F8F;
 `;
+
 export const Value = styled.p`
-font-size: 16px;
+font-size: 25px;
 color:black;
-font-weight: bold;
+font-weight: 1000;
 `;

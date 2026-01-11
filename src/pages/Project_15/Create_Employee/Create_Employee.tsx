@@ -20,14 +20,15 @@ const validationSchema = Yup.object().shape({
 function Create_Employee() {
   //Получаем контекст приложения
 const context = useContext(AppLayoutContext);
-
+//Если контекст отсутствует, возвращаем null
 if (!context) {
   return null;
 }
-
+//Извлекаем функцию установки данных сотрудника из контекста
 const { setEmployee } = context;
 
-  //Инициализируем formik для управления формой
+  //Инициализируем formik для управления формой, изначальными значениями, 
+  // валидацией и обработчиком отправки
   const formik = useFormik({
     initialValues: {
       [DATA.NAME]: "",
@@ -42,26 +43,28 @@ const { setEmployee } = context;
 
     // Обработчик отправки формы
    onSubmit: (values, helpers) => {
+    // Устанавливаем данные сотрудника в контекст приложения
   setEmployee({
     name: values[DATA.NAME],
     lastName: values[DATA.LAST_NAME],
     age: values[DATA.AGE],
     jobPosition: values[DATA.JOB_POSITION],
   });
-
+// Сбрасываем форму после отправки
   helpers.resetForm();
 },
 
   });
   return (
-    <FormaWrapper>
-      <form onSubmit={formik.handleSubmit}>
+    <FormaWrapper onSubmit={formik.handleSubmit}>
+
         <Container>
+          
           <Input
             id="name-id"
             name={DATA.NAME}
-            placeholder="Enter your name"
-            label="Name"
+            placeholder="John"
+            label="Name*"
             value={formik.values[DATA.NAME]}
             onChange={formik.handleChange}
             error={formik.errors[DATA.NAME]}
@@ -69,8 +72,8 @@ const { setEmployee } = context;
           <Input
             id="last-name-id"
             name={DATA.LAST_NAME}
-            placeholder="Enter your last name"
-            label="Last Name"
+            placeholder="Johnson"
+            label="Surname*"
             value={formik.values[DATA.LAST_NAME]}
             onChange={formik.handleChange}
             error={formik.errors[DATA.LAST_NAME]}
@@ -78,8 +81,8 @@ const { setEmployee } = context;
           <Input
             id="age-id"
             name={DATA.AGE}
-            placeholder="Enter your age"
-            label="Age"
+            placeholder="25"
+            label="Age*"
             value={formik.values[DATA.AGE]}
             onChange={formik.handleChange}
             error={formik.errors[DATA.AGE]}
@@ -87,16 +90,16 @@ const { setEmployee } = context;
           <Input
             id="job-id"
             name={DATA.JOB_POSITION}
-            placeholder="Enter your job position"
+            placeholder="QA"
             label="Job Position"
             value={formik.values[DATA.JOB_POSITION]}
             onChange={formik.handleChange}
             error={formik.errors[DATA.JOB_POSITION]}
           />
 
-          <Button name="Login" type="submit" />
+          <Button name="Create" type="submit" />
         </Container>
-      </form>
+    
     </FormaWrapper>
   );
 }

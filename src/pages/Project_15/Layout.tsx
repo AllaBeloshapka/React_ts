@@ -1,5 +1,7 @@
+//Компонент Layout.tsx - это основной макет приложения, 
+// который включает в себя заголовок с навигацией и область основного контента.
 import { createContext, useState } from "react";
-
+//Импортируем стилизованные компоненты для заголовка, навигации и основного контента
 import {
   AppHeader,
   AppMain,
@@ -9,27 +11,28 @@ import {
   HeaderNavigation,
   resolveActiveNavLinkStyles,
 } from "./styles";
-
+//Импортируем типы и маршруты
 import { type LayoutProps } from "./types";
 import { ROUTES } from "./routes";
 
-//Типизация сотрудника
+//Типизация данных сотрудника
 export type Employee = {
   name: string;
   lastName: string;
   age: string;
   jobPosition: string;
 };
-
+//Типизация контекста приложения
 type AppLayoutContextType = {
   employee: Employee | null;
   setEmployee: (employee: Employee) => void;
 };
-
+//Создаем контекст приложения с начальными значениями null
 export const AppLayoutContext =
   createContext<AppLayoutContextType | null>(null);
 
 function Layout({ children }: LayoutProps) {
+  //Создаем состояние для хранения данных сотрудника
   const [employee, setEmployee] = useState<Employee | null>(null);
 
   return (

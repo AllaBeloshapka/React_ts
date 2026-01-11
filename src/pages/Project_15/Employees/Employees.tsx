@@ -1,27 +1,30 @@
 import { useContext } from "react";
 import { AppLayoutContext } from "../Layout";
 import { Label, Value } from "./styles";
-import { PageWrapper } from "pages/EmployeeApp/LogIn/styles";
+import { PageWrapper } from "./styles";
 
 
 
 function Employees() {
+  //Получаем контекст приложения
   const context = useContext(AppLayoutContext);
+  //Если контекст отсутствует, возвращаем null
   if (!context) {
     return null;
   }
+  //Извлекаем данные сотрудника из контекста
   const { employee } = context;
 
   return (
-  
+  // Отображаем данные сотрудника
        < PageWrapper>
-        <Label>name</Label>
+        <Label>Name</Label>
         <Value>{employee?.name}</Value>
-        <Label>surname</Label>
+        <Label>Surname</Label>
         <Value>{employee?.lastName}</Value>
-        <Label>age</Label>
+        <Label>Age</Label>
         <Value>{employee?.age}</Value>
-        <Label>position</Label>
+        <Label>Job Position</Label>
         <Value>{employee?.jobPosition}</Value>
         </ PageWrapper>  
    

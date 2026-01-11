@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const FormaWrapper = styled.div`
+export const FormaWrapper = styled.form`
 width: 590px;
 height: 592px;
 background: white;
