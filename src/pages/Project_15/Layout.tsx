@@ -24,17 +24,16 @@ export type Employee = {
 };
 //Типизация контекста приложения
 type AppLayoutContextType = {
-  employee: Employee | null;
+  employee: Employee | undefined;
   setEmployee: (employee: Employee) => void;
 };
 //Создаем контекст приложения с начальными значениями null
 export const AppLayoutContext =
-  createContext<AppLayoutContextType | null>(null);
+  createContext<AppLayoutContextType | undefined>(undefined);
 
 function Layout({ children }: LayoutProps) {
   //Создаем состояние для хранения данных сотрудника
-  const [employee, setEmployee] = useState<Employee | null>(null);
-
+  const [employee, setEmployee] = useState<Employee | undefined>(undefined);
   return (
     //Оборачиваем компоненты в провайдер контекста и передаем значение текста
     <AppLayoutContext.Provider value={{ employee, setEmployee }}>
