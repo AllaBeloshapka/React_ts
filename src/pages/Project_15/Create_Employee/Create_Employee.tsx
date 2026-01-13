@@ -1,5 +1,8 @@
+//Импортируем контекст приложения
 import { AppLayoutContext } from "../Layout";
+
 import { Container, FormaWrapper } from "./styles";
+//Импортируем хуки 
 import { useContext } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -23,11 +26,11 @@ const validationSchema = Yup.object().shape({
 });
 
 function Create_Employee() {
-  //Получаем контекст приложения
+  //Получаем данные контекста приложения
 const context = useContext(AppLayoutContext);
-//Если контекст отсутствует, возвращаем null
+//Если контекст отсутствует, возвращаем undefined
 if (!context) {
-  return null;
+  return undefined;
 }
 //Извлекаем функцию установки данных сотрудника из контекста
 const { setEmployee } = context;
@@ -46,7 +49,7 @@ const { setEmployee } = context;
     // Отключаем валидацию при изменении полей
     validateOnChange: false,
 
-    // Обработчик отправки формы
+    // Обработчик отправки формы, функция кнопки submit
    onSubmit: (values, helpers) => {
     // Устанавливаем данные сотрудника в контекст приложения
   setEmployee({

@@ -12,7 +12,7 @@ import {
   resolveActiveNavLinkStyles,
 } from "./styles";
 //Импортируем типы и маршруты
-import { type LayoutProps } from "./types";
+import { type LayoutProps, type LayoutPropsContext } from "./types";
 import { ROUTES } from "./routes";
 
 //Типизация данных сотрудника
@@ -22,21 +22,21 @@ export type Employee = {
   age: string;
   jobPosition: string;
 };
-//Типизация контекста приложения
-type AppLayoutContextType = {
-  employee: Employee | undefined;
-  setEmployee: (employee: Employee) => void;
-};
-//Создаем контекст приложения с начальными значениями null
+
+//Создаем контекст приложения с начальными значениями undefined
 export const AppLayoutContext =
-  createContext<AppLayoutContextType | undefined>(undefined);
+  createContext<LayoutPropsContext>({
+  employee: undefined,
+  setEmployee: () => {},
+  });
+
 
 function Layout({ children }: LayoutProps) {
   //Создаем состояние для хранения данных сотрудника
   const [employee, setEmployee] = useState<Employee | undefined>(undefined);
   return (
     //Оборачиваем компоненты в провайдер контекста и передаем значение текста
-    <AppLayoutContext.Provider value={{ employee, setEmployee }}>
+    <AppLayoutContext.Provider value={{ employee: employee, setEmployee: setEmployee }}>
       <AppHeader>
         <HeaderLogoWrapper>
           <HeaderLogoImage

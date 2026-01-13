@@ -1,5 +1,9 @@
 import { useContext } from "react";
+
+//Импортируем контекст приложения
 import { AppLayoutContext } from "../Layout";
+
+//Импортируем стилизованные компоненты для отображения данных сотрудника
 import { Label, Value } from "./styles";
 import { PageWrapper } from "./styles";
 
@@ -8,9 +12,9 @@ import { PageWrapper } from "./styles";
 function Employees() {
   //Получаем контекст приложения
   const context = useContext(AppLayoutContext);
-  //Если контекст отсутствует, возвращаем null
+  //Если контекст отсутствует, возвращаем undefined
   if (!context) {
-    return null;
+    return undefined;
   }
   //Извлекаем данные сотрудника из контекста
   const { employee } = context;
@@ -18,14 +22,18 @@ function Employees() {
   return (
   // Отображаем данные сотрудника
        < PageWrapper>
-        <Label>Name</Label>
-        <Value>{employee?.name}</Value>
+        {employee && (
+        <>
+          <Label>Name</Label>
+        <Value>{employee.name}</Value>
         <Label>Surname</Label>
-        <Value>{employee?.lastName}</Value>
+        <Value>{employee.lastName}</Value>
         <Label>Age</Label>
-        <Value>{employee?.age}</Value>
+        <Value>{employee.age}</Value>
         <Label>Job Position</Label>
-        <Value>{employee?.jobPosition}</Value>
+        <Value>{employee.jobPosition}</Value>
+        </>
+        )}
         </ PageWrapper>  
    
   )

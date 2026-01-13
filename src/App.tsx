@@ -62,13 +62,13 @@ function App() {
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </Layout> */}
-   
+
       <Layout>
         <Routes>
-<Route path="/create" element={<Create_Employee />} />
-        <Route path="/employees" element={<Employees />} />
-        <Route path="*" element={<Navigate to="/create" />} />
-          
+          <Route path="/create" element={<Create_Employee />} />
+          <Route index element={<Create_Employee />} />
+          <Route path="/employees" element={<Employees />} />
+          <Route path="*" element={<Navigate to="/create" />} />
         </Routes>
       </Layout>
     </BrowserRouter>
