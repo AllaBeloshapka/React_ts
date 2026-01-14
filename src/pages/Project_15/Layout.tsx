@@ -15,25 +15,26 @@ import {
 import { type LayoutProps, type LayoutPropsContext } from "./types";
 import { ROUTES } from "./routes";
 
-//Типизация данных сотрудника
+//Типизация объекта данных сотрудника
 export type Employee = {
   name: string;
   lastName: string;
   age: string;
   jobPosition: string;
-};
+}; 
 
 //Создаем контекст приложения с начальными значениями undefined
 export const AppLayoutContext =
   createContext<LayoutPropsContext>({
-  employee: undefined,
+  employee: [],
   setEmployee: () => {},
   });
 
-
 function Layout({ children }: LayoutProps) {
   //Создаем состояние для хранения данных сотрудника
-  const [employee, setEmployee] = useState<Employee | undefined>(undefined);
+  const [employee, setEmployee] = useState<Employee[] >([]);
+
+
   return (
     //Оборачиваем компоненты в провайдер контекста и передаем значение текста
     <AppLayoutContext.Provider value={{ employee: employee, setEmployee: setEmployee }}>

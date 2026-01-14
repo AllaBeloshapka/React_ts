@@ -27,13 +27,13 @@ const validationSchema = Yup.object().shape({
 
 function Create_Employee() {
   //Получаем данные контекста приложения
-const context = useContext(AppLayoutContext);
+const {setEmployee} = useContext(AppLayoutContext);
 //Если контекст отсутствует, возвращаем undefined
-if (!context) {
-  return undefined;
-}
-//Извлекаем функцию установки данных сотрудника из контекста
-const { setEmployee } = context;
+// if (!context) {
+//   return undefined;
+// }
+// //Извлекаем функцию установки данных сотрудника из контекста
+// const { setEmployee } = context;
 
   //Инициализируем formik для управления формой, изначальными значениями, 
   // валидацией и обработчиком отправки
@@ -51,17 +51,22 @@ const { setEmployee } = context;
 
     // Обработчик отправки формы, функция кнопки submit
    onSubmit: (values, helpers) => {
-    // Устанавливаем данные сотрудника в контекст приложения
-  setEmployee({
+
+  // Добавляем нового сотрудника в массив сотрудников
+ setEmployee((prevvalue) => {
+    return [...prevvalue , {
     name: values[DATA.NAME],
     lastName: values[DATA.LAST_NAME],
     age: values[DATA.AGE],
     jobPosition: values[DATA.JOB_POSITION],
-  });
+  }];
+
+ });
+
    console.log("Employee created:");
       console.log(values);
 // Сбрасываем форму после отправки
-  helpers.resetForm();
+   helpers.resetForm();
 },
 
   });

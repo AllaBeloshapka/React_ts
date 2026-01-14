@@ -9,7 +9,7 @@ export interface LayoutProps {
 //Типизация контекста приложения
 export interface LayoutPropsContext {
   //Данные сотрудника и функция для их обновления
-  employee: Employee|undefined;
-  setEmployee: Dispatch<SetStateAction<Employee|undefined>>;
+  employee: Employee[];
+  setEmployee: Dispatch<SetStateAction<Employee[]>>;
 }
   

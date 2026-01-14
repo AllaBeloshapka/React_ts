@@ -1,9 +1,10 @@
 // import Layout from "components/Layout/Layout";
+import { DATA } from "pages/Project_15/Create_Employee/types";
 import Layout from "./pages/Project_15/Layout";
 import Create_Employee from "pages/Project_15/Create_Employee/Create_Employee";
 import Employees from "pages/Project_15/Employees/Employees";
 
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, data, Navigate, Route, Routes } from "react-router-dom";
 // Lessons
 // import Lesson_06 from "./lessons/Lesson_06/Lesson_06";
 // import Lesson_07 from "lessons/Lesson_07/Lesson_07";
@@ -16,6 +17,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 // import TodoForm from "./consultation/Laboratory_work/TodoForm";
 
 import GlobalStyles from "styles/GlobalStyles";
+import { ROUTES } from "pages/Project_15/routes";
 
 // import ContactUs from "components/ContactUs/ContactUs";
 // import About from "pages/EmployeeApp/About/About";
@@ -65,10 +67,10 @@ function App() {
 
       <Layout>
         <Routes>
-          <Route path="/create" element={<Create_Employee />} />
+          <Route path={ROUTES.CREATE_EMPLOYEES} element={<Create_Employee />} />
           <Route index element={<Create_Employee />} />
-          <Route path="/employees" element={<Employees />} />
-          <Route path="*" element={<Navigate to="/create" />} />
+          <Route path={ROUTES.EMPLOYEES} element={<Employees />} />
+          <Route path="*" element={<Navigate to={ROUTES.CREATE_EMPLOYEES} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

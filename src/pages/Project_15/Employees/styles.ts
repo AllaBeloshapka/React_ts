@@ -1,24 +1,28 @@
 import styled from "@emotion/styled";
 
-
 export const PageWrapper = styled.div`
-width: 590px;
-height: 470px;
-background-color:#ffffff;
-border-radius: 4px;
-padding: 60px;
-display: flex;
-flex-direction: column;
-gap: 20px;
-border: 1px solid #000000;
+  display: flex;
+  flex: 1;
+  gap: 20px;
 `;
+export const Card = styled.div`
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 60px;
+  flex-direction: column;
+  display: flex;
+  width: 590px;
+  height: 470px;
+  gap: 20px;
+`;
+
 export const Label = styled.p`
-font-size: 14px;
-color: #8F8F8F;
+  font-size: 14px;
+  color: #8f8f8f;
 `;
 
 export const Value = styled.p`
-font-size: 25px;
-color:black;
-font-weight: 1000;
+  font-size: 25px;
+  color: black;
+  font-weight: 1000;
 `;
